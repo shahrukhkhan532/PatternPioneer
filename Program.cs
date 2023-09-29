@@ -13,7 +13,6 @@ namespace PatternPioneer
 
             builder.Services.AddControllers();
 
-            builder.Services.AddTransient<IOne, One>();
             builder.Services.AddTransient<MessageBuilderBase, OrderConfirmationMessageBuilder>();
             builder.Services.AddTransient<MessageBuilderBase, ProfileUpdateAlertMessageBuilder>();
             builder.Services.AddTransient<MessageBuilderBase, UserRegistrationMessageBuilder>();
@@ -33,17 +32,6 @@ namespace PatternPioneer
             app.MapControllers();
 
             app.Run();
-        }
-    }
-    public interface IOne
-    {
-        string get();
-    }
-    public class One : IOne
-    {
-        public string get()
-        {
-            return $"{DateTime.Now}";
         }
     }
 }
