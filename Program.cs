@@ -1,4 +1,5 @@
 using PatternPioneer.Factories;
+using PatternPioneer.Services;
 using PatternPioneer.Strategies.MessageBuilders;
 
 namespace PatternPioneer
@@ -12,7 +13,7 @@ namespace PatternPioneer
             // Add services to the container.
 
             builder.Services.AddControllers();
-
+            builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<MessageBuilderBase, OrderConfirmationMessageBuilder>();
             builder.Services.AddTransient<MessageBuilderBase, ProfileUpdateAlertMessageBuilder>();
             builder.Services.AddTransient<MessageBuilderBase, UserRegistrationMessageBuilder>();
