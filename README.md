@@ -28,6 +28,6 @@ Legacy code is like that old house you inherit - it's filled with memories, but 
 
 We welcome contributions! If you find a bug or would like to add a new feature or design pattern example, please open an issue or submit a pull request 🚀.
 
-Happy coding! 💻 And remember, design patterns are there to help, not to complicate. Always choose the right tool for the job and refactor legacy code in a way that enhances its maintainability and readability.
+Happy coding! 💻 And remember, design patterns are there to help, not to complicate. Always choose the right tool for the job and refactor legacy code in a way that enhances its maintainability and readability ✔️.
 
 ***
