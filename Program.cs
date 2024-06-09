@@ -10,6 +10,18 @@ public class Program
 
         builder.Services.AddControllers();
 
+        #region Decorator Pattern
+        builder.Services
+            .AddMemoryCache()
+            .AddSingleton<SlowRepository>()
+            .AddScoped<IRepository>(p =>
+            {
+                var memoryCache = p.GetRequiredService<IMemoryCache>();
+                var slowRepository = p.GetRequiredService<SlowRepository>();
+                return new CachedRepository(slowRepository, memoryCache);
+            });
+        #endregion
+
         builder.Services.AddMessageBuilders();
         builder.Services.AddTransient<IUserService, UserService>();
         builder.Services.AddTransient<MessageBuilderEngine>();
