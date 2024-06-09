@@ -1,15 +1,14 @@
-﻿namespace PatternPioneer.Services
-{
-    public interface IUserService
-    {
-        (string FirstName, string LastName) GetById(int Id);
-    }
+﻿namespace PatternPioneer.Services;
 
-    public class UserService : IUserService
+public interface IUserService
+{
+    (string FirstName, string LastName) GetById(int Id);
+}
+
+public class UserService : IUserService
+{
+    public (string FirstName, string LastName) GetById(int Id)
     {
-        public (string FirstName, string LastName) GetById(int Id)
-        {
-            return ("John", "Doe");
-        }
+        return ("John", "Doe");
     }
 }
