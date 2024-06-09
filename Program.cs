@@ -1,6 +1,7 @@
 using PatternPioneer.Factories;
 using PatternPioneer.Services;
 using PatternPioneer.Strategies.MessageBuilders;
+using System.Reflection;
 
 namespace PatternPioneer
 {
@@ -13,12 +14,9 @@ namespace PatternPioneer
             // Add services to the container.
 
             builder.Services.AddControllers();
-            builder.Services.AddTransient<IUserService, UserService>();
-            builder.Services.AddTransient<MessageBuilderBase, OrderConfirmationMessageBuilder>();
-            builder.Services.AddTransient<MessageBuilderBase, ProfileUpdateAlertMessageBuilder>();
-            builder.Services.AddTransient<MessageBuilderBase, UserRegistrationMessageBuilder>();
-            builder.Services.AddTransient<MessageBuilderBase, DefaultMessageBuilder>();
 
+            builder.Services.AddMessageBuilders();
+            builder.Services.AddTransient<IUserService, UserService>();
             builder.Services.AddTransient<MessageBuilderEngine>();
 
             var app = builder.Build();
