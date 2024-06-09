@@ -1,7 +1,6 @@
 ﻿namespace PatternPioneer.Strategies.MessageBuilders;
 
-using PatternPioneer.Services;
-using Rule = Domain.Entities.Rule;  
+using Rule = Domain.Entities.Rule;
 
 public class OrderConfirmationMessageBuilder : MessageBuilderBase
 {
