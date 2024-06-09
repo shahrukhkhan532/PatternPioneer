@@ -24,4 +24,6 @@ public abstract class MessageBuilderBase
     }
 
     public abstract bool CanHandle(Rule rule);
+
+    public override string ToString() => GetType().Name;
 }
