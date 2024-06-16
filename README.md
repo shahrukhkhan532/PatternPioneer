@@ -10,7 +10,7 @@ Legacy code is like that old house you inherit - it's filled with memories, but 
 - **Strategy Pattern:** 🧠 Allows selecting an algorithm's implementation at runtime.
 - **Factory Pattern:** 🏭 Provides an interface for creating objects in a superclass but allows subclasses to alter the types of objects that will be created.
 - **Template Method Pattern:** 📑 Defines the program skeleton in a method in an algorithm but delays some steps to subclasses.
-- **Decorator Pattern:** 📑 Add dynamically behavior to an individual object without changing the behavior.
+- **Decorator Pattern:** 📔 Add dynamically behavior to an individual object without changing the behavior.
 
 ## 🚀 Getting Started
 - 📦 ***Clone the Repository***
