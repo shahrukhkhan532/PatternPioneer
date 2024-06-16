@@ -16,14 +16,14 @@ public class DecoratorPatternController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> Get([FromQuery] int id)
     {
-        var student = await _repository.GetPersonByIdAsync(id);
+        var student = await _repository.GetStudentByIdAsync(id);
         return Ok(student);
     }
 
     [HttpGet]
     public async Task<IActionResult> Post([FromQuery] int id, string name)
     {
-        await _repository.SavePersonAsync(new Student()
+        await _repository.SaveStudentAsync(new Student()
         {
             Id = id,
             Name = name
