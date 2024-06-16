@@ -12,21 +12,21 @@ public class Student
 
 public interface IRepository
 {
-    public Task<Student> GetPersonByIdAsync(int id);
-    public Task SavePersonAsync(Student student);
+    public Task<Student> GetStudentByIdAsync(int id);
+    public Task SaveStudentAsync(Student student);
 }
 
 public class SlowRepository : IRepository
 {
     private readonly List<Student> _students = new();
 
-    public async Task<Student> GetPersonByIdAsync(int id)
+    public async Task<Student> GetStudentByIdAsync(int id)
     {
         await Task.Delay(1000);
         return _students.First(x => x.Id == id);
     }
 
-    public Task SavePersonAsync(Student student)
+    public Task SaveStudentAsync(Student student)
     {
         _students.Add(student);
         return Task.CompletedTask;
@@ -43,19 +43,19 @@ public class CachedRepository : IRepository
         _repository = repository;
         _memoryCache = memoryCache;
     }
-    public async Task<Student> GetPersonByIdAsync(int id)
+    public async Task<Student> GetStudentByIdAsync(int id)
     {
         if (!_memoryCache.TryGetValue(id, out Student student))
         {
-            student = await _repository.GetPersonByIdAsync(id);
+            student = await _repository.GetStudentByIdAsync(id);
             _memoryCache.Set(id, student);
         }
 
         return student ?? new Student();
     }
 
-    public Task SavePersonAsync(Student student)
+    public Task SaveStudentAsync(Student student)
     {
-        return _repository.SavePersonAsync(student);
+        return _repository.SaveStudentAsync(student);
     }
 }
